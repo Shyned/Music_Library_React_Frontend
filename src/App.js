@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState,useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
+import axios from 'axios';
+import SeeAllMusic from './components/SeeAllMusic/SeeAllMusic';
+
+
 
 function App() {
+  let fulllibrary =  axios.get('http://127.0.0.1:8000/api/music/')
+  const [ music,setMusic] = useState([{fulllibrary}])
+
+  useEffect(music)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section>
+      <button >See List</button>
+    </section>
   );
 }
 
