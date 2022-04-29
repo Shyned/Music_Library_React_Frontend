@@ -6,49 +6,38 @@ import React, { useState } from "react";
 
 
   const SearchBar = (props) => {
-  const [songSearch, setSongSearch] = useState("");
+  const [findmusic, setFindmusic] = useState("");
 
   function SearchResults(event) {
     event.preventDefault();
-    let response = props.songs.filter((song) => {
-      if (song.album.includes(songSearch)) {
+    let response = props.music.filter((song) => {
+      if (song.album.includes(findmusic)) {
         return true;
-      } else if (song.artist.includes(songSearch)) {
+      } else if (song.artist.includes(findmusic)) {
         return true;
-      } else if (song.title.includes(songSearch)) {
+      } else if (song.title.includes(findmusic)) {
         return true;
-      } else if (song.genre.includes(songSearch)) {
+      } else if (song.genre.includes(findmusic)) {
         return true;
-      } else if (song.release_date.includes(songSearch)) {
+      } else if (song.release_date.includes(findmusic)) {
         return true;
       }
     });
-    props.setSongs(response);
-    setSongSearch("");
-    if (songSearch === "") {
-      props.getAllSongs();
+    console.log(response.data)
     }
-  }
+  
 
   return (
-    <div className="nav-bar">
-      <div className="navbar">
-        <a href="#add-song">
-        </a>
-      </div>{" "}
-     
       <form onSubmit={SearchResults}>
         <div>
-          <input className='user-input'
+          <input 
             type="text"
-            value={songSearch}
-            onChange={(e) => setSongSearch(e.target.value)}
-            placeholder="Search here..."
-          />{" "}
+            value={findmusic}
+            onChange={(event) => setFindmusic(event.target.value)}
+          />
           <button className ='search' type="submit">Search</button>
         </div>
       </form>
-    </div>
   );
 };
 

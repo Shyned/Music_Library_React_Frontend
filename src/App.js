@@ -35,7 +35,7 @@ async function newSong(newSong) {
     <section>
       <div className='heading-section'>
         <h1 className='title'>Doc's Music Shop</h1>
-        <SearchResults setMusic ={setMusic} getLibrary={getLibrary} />
+        <SearchResults music = {music} setMusic ={setMusic} getLibrary={getLibrary} />
         {/* <SearchLibrary music = {music}/> */}
       </div>
       <div className='add-music-section'>
